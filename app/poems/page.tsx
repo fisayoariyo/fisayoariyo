@@ -25,14 +25,14 @@ export default async function PoemsPage() {
             className="mb-8 p-4 border rounded-lg shadow-sm bg-white"
           >
             <h2 className="text-xl font-semibold mb-2">{poem.title}</h2>
-            <p className="whitespace-pre-line text-gray-700">{poem.content}</p>
+            <p className="whitespace-pre-line text-gray-700">{poem.text}</p>
             <p className="text-sm text-gray-500 mt-2">
               {new Date(poem.created_at).toLocaleDateString()}
             </p>
           </div>
         ))
       ) : (
-        <p>No poems yet.</p>
+        <p>No poems found.</p>
       )}
     </main>
   );
