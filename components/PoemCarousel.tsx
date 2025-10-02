@@ -35,7 +35,7 @@ export default function PoemCarousel() {
             style={{ scrollSnapAlign: 'start' }}
           >
             <h3 className="text-lg font-semibold mb-2">{poem.title}</h3>
-            <p className="text-gray-700 whitespace-pre-line">{poem.content}</p>
+            <p className="text-gray-700 whitespace-pre-line">{poem.text}</p>
           </div>
         ))}
       </div>
