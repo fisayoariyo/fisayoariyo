@@ -1,4 +1,4 @@
-import Header from '@/components/Header';
+import Header from "@/components/Header";
 import PoemCarousel from "@/components/PoemCarousel";
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
       <Header />
 
       <div className="pt-28 px-4 max-w-6xl mx-auto space-y-16">
-        <section className="h-[80vh] flex flex-col justify-center text-center">
+        <section className="min-h-[50vh] flex flex-col justify-center text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             Welcome to My Creative Space
           </h1>
