@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+import Header from '@/components/Header';
 import PoemCarousel from "@/components/PoemCarousel";
 
 export default function Home() {
