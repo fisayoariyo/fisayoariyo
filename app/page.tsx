@@ -1,10 +1,26 @@
-import Header from "@/components/Header";
-import PoemCarousel from "@/components/PoemCarousel";
+// app/page.tsx
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-gray-900 font-sans">
-      <Header />
+      {/* NAVIGATION */}
+      <header className="flex justify-between items-center px-6 py-4 border-b">
+        <h1 className="text-xl font-semibold">Fisayo Ariyo</h1>
+        <nav className="space-x-4">
+          <a href="#poetry" className="hover:underline">
+            Poetry
+          </a>
+          <a href="#projects" className="hover:underline">
+            Projects
+          </a>
+          <a href="#about" className="hover:underline">
+            About
+          </a>
+          <a href="#subscribe" className="hover:underline">
+            Subscribe
+          </a>
+        </nav>
+      </header>
 
       {/* HERO SECTION */}
       <section className="text-center py-24 px-4">
@@ -20,7 +36,20 @@ export default function Home() {
       {/* POETRY SECTION */}
       <section id="poetry" className="px-6 py-20 bg-gray-50">
         <h3 className="text-2xl font-bold mb-6">Poetry</h3>
-        <PoemCarousel />
+        <div className="grid gap-8 md:grid-cols-2">
+          <div className="p-6 border rounded-lg hover:shadow">
+            <h4 className="text-xl font-semibold">Poem Title 1</h4>
+            <p className="text-gray-600 mt-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+            </p>
+          </div>
+          <div className="p-6 border rounded-lg hover:shadow">
+            <h4 className="text-xl font-semibold">Poem Title 2</h4>
+            <p className="text-gray-600 mt-2">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem...
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* PROJECTS SECTION */}
