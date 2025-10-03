@@ -1,29 +1,11 @@
-// app/page.tsx
-
+import Header from "../components/Header";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-gray-900 font-sans">
-      {/* NAVIGATION */}
-      <header className="flex justify-between items-center px-6 py-4 border-b">
-        <h1 className="text-xl font-semibold">Fisayo Ariyo</h1>
-        <nav className="space-x-4">
-          <a href="#poetry" className="hover:underline">
-            Poetry
-          </a>
-          <a href="#projects" className="hover:underline">
-            Projects
-          </a>
-          <a href="#about" className="hover:underline">
-            About
-          </a>
-          <a href="#subscribe" className="hover:underline">
-            Subscribe
-          </a>
-        </nav>
-      </header>
+      <Header />
 
       {/* HERO SECTION */}
-      <section className="text-center py-24 px-4">
+      <section className="text-center py-24 px-4 max-w-4xl mx-auto">
         <h2 className="text-4xl md:text-6xl font-bold mb-4">
           A Quiet Space for Reflection & Creation
         </h2>
@@ -33,27 +15,26 @@ export default function Home() {
         </p>
       </section>
 
-      {/* POETRY SECTION */}
-      <section id="poetry" className="px-6 py-20 bg-gray-50">
+      {/* POETRY SECTION - HORIZONTAL SCROLL PREVIEW */}
+      <section id="poetry" className="px-6 py-20 bg-gray-50 max-w-6xl mx-auto">
         <h3 className="text-2xl font-bold mb-6">Poetry</h3>
-        <div className="grid gap-8 md:grid-cols-2">
-          <div className="p-6 border rounded-lg hover:shadow">
-            <h4 className="text-xl font-semibold">Poem Title 1</h4>
-            <p className="text-gray-600 mt-2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-            </p>
-          </div>
-          <div className="p-6 border rounded-lg hover:shadow">
-            <h4 className="text-xl font-semibold">Poem Title 2</h4>
-            <p className="text-gray-600 mt-2">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem...
-            </p>
-          </div>
+        <div className="flex space-x-6 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+          {[1, 2, 3, 4, 5, 6].map((id) => (
+            <div
+              key={id}
+              className="min-w-[280px] p-6 bg-white rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer flex-shrink-0"
+            >
+              <h4 className="text-xl font-semibold">Poem Title {id}</h4>
+              <p className="text-gray-600 mt-2">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* PROJECTS SECTION */}
-      <section id="projects" className="px-6 py-20">
+      <section id="projects" className="px-6 py-20 max-w-4xl mx-auto">
         <h3 className="text-2xl font-bold mb-6">Projects</h3>
         <div className="space-y-8">
           <div>
@@ -79,9 +60,9 @@ export default function Home() {
       </section>
 
       {/* ABOUT SECTION */}
-      <section id="about" className="px-6 py-20 bg-gray-50">
+      <section id="about" className="px-6 py-20 bg-gray-50 max-w-4xl mx-auto">
         <h3 className="text-2xl font-bold mb-6">About Me</h3>
-        <p className="text-gray-700 max-w-3xl">
+        <p className="text-gray-700 max-w-3xl mx-auto">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel
           ante at lacus tempor ultricies. Integer posuere metus in lorem
           hendrerit, in tincidunt risus semper. Nunc at lectus eu turpis euismod
@@ -90,12 +71,15 @@ export default function Home() {
       </section>
 
       {/* SUBSCRIBE SECTION */}
-      <section id="subscribe" className="px-6 py-20 text-center">
+      <section
+        id="subscribe"
+        className="px-6 py-20 text-center max-w-md mx-auto"
+      >
         <h3 className="text-2xl font-bold mb-4">Stay Connected</h3>
         <p className="text-gray-600 mb-6">
           Subscribe to receive new poems and updates:
         </p>
-        <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+        <form className="flex flex-col sm:flex-row gap-4">
           <input
             type="email"
             placeholder="Your email"
