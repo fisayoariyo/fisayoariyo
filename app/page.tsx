@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import { supabase } from "../lib/supabase";
+import PoemCarousel from "../components/PoemCarousel";
 
 type Poem = {
   id: number;
@@ -31,7 +32,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-white text-gray-900 font-sans">
+    <main className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-100 text-gray-900 font-serif">
       <Header />
 
       {/* HERO SECTION */}
@@ -46,31 +47,7 @@ export default function Home() {
       </section>
 
       {/* POETRY SECTION */}
-      <section id="poetry" className="px-6 py-20 bg-gray-50 max-w-6xl mx-auto">
-        <h3 className="text-2xl font-bold mb-6">Poetry</h3>
-
-        {loading ? (
-          <p className="text-gray-500">Loading...</p>
-        ) : poems.length === 0 ? (
-          <p className="text-gray-500">No poems found.</p>
-        ) : (
-          <div className="flex space-x-6 overflow-x-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-            {poems.map((poem) => (
-              <div
-                key={poem.id}
-                className="min-w-[280px] p-6 bg-white rounded-lg shadow hover:shadow-lg transition-shadow cursor-pointer flex-shrink-0"
-              >
-                <h4 className="text-xl font-semibold">{poem.title}</h4>
-                <p className="text-gray-600 mt-2">
-                  {poem.text.length > 100
-                    ? poem.text.substring(0, 100) + "..."
-                    : poem.text}
-                </p>
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
+      <PoemCarousel poems={poems} loading={loading} />
 
       {/* PROJECTS SECTION */}
       <section id="projects" className="px-6 py-20 max-w-4xl mx-auto">
@@ -124,10 +101,7 @@ export default function Home() {
             placeholder="Your email"
             className="w-full px-4 py-2 border rounded"
           />
-          <button
-            type="submit"
-            className="bg-black text-white px-6 py-2 rounded hover:bg-gray-800"
-          >
+          <button className="px-6 py-2 bg-black text-white rounded-full text-sm font-medium hover:bg-gray-800 transition-all duration-300">
             Subscribe
           </button>
         </form>

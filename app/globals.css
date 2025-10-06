@@ -1,41 +1,51 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* 🌿 Global Theme Variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f6f5f1; /* slightly warmer off-white */
+  --foreground: #141414; /* deeper near-black for better contrast */
+  --muted: #555555; /* darker gray for body text */
+  --border: #ddd8d2; /* warmer, visible border tone */
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-garamond);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-/* Base font styles */
+/* 🌍 Global Base Styles */
 body {
-  font-family: "Inter", sans-serif;
-  background-color: #fff;
-  color: #111;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
-  margin: 0;
-  padding: 0;
 }
 
-/* Optional: Headings can use a poetic serif font */
+/* 🪶 Typography Defaults */
 h1,
 h2,
-h3 {
-  font-family: "Playfair Display", serif;
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif), serif;
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+p {
+  color: var(--muted);
+}
+
+/* ✨ Utilities for consistent look */
+.border-default {
+  border-color: var(--border);
+}
+
+.text-muted {
+  color: var(--muted);
 }
